@@ -25,4 +25,19 @@ public class LambdaDemoTest {
         list.add(1);
         Assert.assertEquals(new Integer(1), demo.max(list));
     }
+
+    /**
+     * Check that we correctly calculate the sum of the elements.
+     */
+    @Test
+    public void testSum() {
+        final List<Integer> list = new ArrayList<>();
+        list.add(12);
+        list.add(0);
+        list.add(0);
+        list.add(1);
+        list.add(5);
+        list.add(1);
+        Assert.assertEquals(new Long(19), new LambdaDemo().sum(list));
+    }
 }

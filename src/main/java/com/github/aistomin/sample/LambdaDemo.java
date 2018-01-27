@@ -2,6 +2,7 @@ package com.github.aistomin.sample;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * Created by aistomin on 25.01.18.
@@ -17,6 +18,17 @@ final public class LambdaDemo {
      */
     Integer max(final List<Integer> list) {
         return list.stream().max(Integer::compareTo).orElse(null);
+    }
+
+    /**
+     * Calculate the sum of the integers in the list.
+     * @param list The list.
+     * @return The sum.
+     */
+    Long sum(final List<Integer> list) {
+        final AtomicLong sum = new AtomicLong(0L);
+        list.forEach(sum::addAndGet);
+        return sum.get();
     }
 
     public static void main(String[] args) {
